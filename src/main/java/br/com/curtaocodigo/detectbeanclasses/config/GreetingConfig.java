@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 public class GreetingConfig {
 
     @Bean
-    public String getGreetingFromConfig(){
+    public String greetingFromConfig(){
         return "Greeting from Config";
     }
 }
