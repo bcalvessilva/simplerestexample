@@ -3,11 +3,15 @@ package br.com.curtaocodigo.simplerestexample.controller;
 import br.com.curtaocodigo.simplerestexample.model.User;
 import br.com.curtaocodigo.simplerestexample.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
+import static org.springframework.data.util.Optionals.ifPresentOrElse;
 
 @RestController
 @RequestMapping("v1/users")
@@ -40,15 +44,26 @@ public class UsersController {
 	}
 
 	@PutMapping(value = "/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	public void update(@PathVariable( "id" ) Long id, @RequestBody User resource) {
-		userRepository.save(resource);
+	public ResponseEntity<User> update(@PathVariable( "id" ) Long id, @RequestBody User resource) {
+		return userRepository.findById(id).map(
+				value -> updateUserInfo(value, resource))
+				.orElseGet(() -> ResponseEntity.of(Optional.empty()));
+	}
+
+	private ResponseEntity<User> updateUserInfo(User user, User newUser){
+		user.setNome(newUser.getNome());
+		user.setIdade(newUser.getIdade());
+		return ResponseEntity.of(Optional.of(userRepository.save(user)));
 	}
 
 	@DeleteMapping(value = "/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	public void delete(@PathVariable("id") Long id) {
-		userRepository.deleteById(id);
+	public ResponseEntity delete(@PathVariable("id") Long id) {
+		try{
+			userRepository.deleteById(id);
+			return ResponseEntity.ok().build();
+		}catch (EmptyResultDataAccessException ex){
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 }
