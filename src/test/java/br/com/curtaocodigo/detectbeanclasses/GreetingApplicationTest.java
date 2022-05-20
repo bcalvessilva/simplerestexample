@@ -1,4 +1,4 @@
-package br.com.bcalvessilva.greeting;
+package br.com.curtaocodigo.detectbeanclasses;
 
 import static org.junit.jupiter.api.Assertions.*;
 
