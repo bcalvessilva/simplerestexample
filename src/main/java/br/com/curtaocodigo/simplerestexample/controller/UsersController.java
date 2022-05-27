@@ -57,10 +57,10 @@ public class UsersController {
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity delete(@PathVariable("id") Long id) {
+	public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
 		try{
 			userRepository.deleteById(id);
-			return ResponseEntity.ok().build();
+			return ResponseEntity.accepted().build();
 		}catch (EmptyResultDataAccessException ex){
 			return ResponseEntity.notFound().build();
 		}
