@@ -1,4 +1,4 @@
-package br.com.curtaocodigo.simplerestexample.model;
+package br.com.curtaocodigo.apisnapratica.model;
 
 
 import javax.persistence.Entity;

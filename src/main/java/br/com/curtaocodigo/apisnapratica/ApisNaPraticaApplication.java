@@ -1,4 +1,4 @@
-package br.com.curtaocodigo.simplerestexample;
+package br.com.curtaocodigo.apisnapratica;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@SpringBootApplication(scanBasePackages ="br.com.curtaocodigo.simplerestexample")
-public class SimpleRestApplication {
+@SpringBootApplication(scanBasePackages ="br.com.curtaocodigo.apisnapratica")
+public class ApisNaPraticaApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(SimpleRestApplication.class, args);
+		SpringApplication.run(ApisNaPraticaApplication.class, args);
 	}
 }

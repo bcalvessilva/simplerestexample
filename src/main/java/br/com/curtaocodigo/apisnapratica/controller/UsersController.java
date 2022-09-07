@@ -1,7 +1,7 @@
-package br.com.curtaocodigo.simplerestexample.controller;
+package br.com.curtaocodigo.apisnapratica.controller;
 
-import br.com.curtaocodigo.simplerestexample.model.User;
-import br.com.curtaocodigo.simplerestexample.repository.UserRepository;
+import br.com.curtaocodigo.apisnapratica.model.User;
+import br.com.curtaocodigo.apisnapratica.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
