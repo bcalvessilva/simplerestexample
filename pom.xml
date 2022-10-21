@@ -15,6 +15,7 @@
 	<description>apisnapratica initial project </description>
 	<properties>
 		<java.version>11</java.version>
+		<springfox-version>3.0.0</springfox-version>
 	</properties>
 	<dependencies>
 
@@ -39,8 +40,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>

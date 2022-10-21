@@ -1,5 +1,6 @@
 package br.com.curtaocodigo.apisnapratica;
 
+import br.com.curtaocodigo.apisnapratica.model.Product;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
